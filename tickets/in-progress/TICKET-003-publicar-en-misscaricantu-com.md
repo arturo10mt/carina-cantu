@@ -1,6 +1,6 @@
 # TICKET-003: Publicar la página de Carina en misscaricantu.com
 
-**Estado:** backlog
+**Estado:** en progreso
 **Tipo:** infraestructura
 **Prioridad:** alta
 **Creado:** 2026-07-11
@@ -15,21 +15,63 @@ referencia).
 
 ## Criterios de aceptación
 
-- [ ] Confirmar dónde está registrado el dominio `misscaricantu.com` (Porkbun u otro) y que
-      esté activo/pagado
-- [ ] Sitio desplegado en Netlify y visible en la URL temporal `.netlify.app`
-- [ ] Dominio `misscaricantu.com` conectado en Netlify (nameservers o registros DNS,
-      según lo que ofrezca Netlify al momento de configurar)
-- [ ] HTTPS activo automáticamente (certificado de Netlify)
+- [x] Confirmar dónde está registrado el dominio `misscaricantu.com` (Porkbun u otro) y que
+      esté activo/pagado — confirmado: Porkbun
+- [x] Sitio desplegado en Netlify y visible en la URL temporal `.netlify.app`
+      (`radiant-dusk-8e1a97.netlify.app`)
+- [x] Dominio `misscaricantu.com` conectado en Netlify — nameservers cambiados en Porkbun a
+      los de Netlify (`dns1-4.p06.nsone.net`), delegación confirmada propagada a nivel
+      registro (verificado con `dig +trace` contra los servidores raíz de `.com`)
+- [ ] HTTPS activo automáticamente (certificado de Netlify) — bloqueado por el problema de
+      DNS descrito abajo
 - [ ] Se verifica que `https://www.misscaricantu.com` y `https://misscaricantu.com` cargan
-      correctamente la página
+      correctamente la página — bloqueado por el mismo problema
 - [ ] El formulario de contacto (Formspree) sigue funcionando correctamente ya en producción
+
+## Bitácora — problema de DNS (2026-07-11)
+
+**Síntoma:** después de cambiar los nameservers en Porkbun a los de Netlify, tanto
+`misscaricantu.com` como `www.misscaricantu.com` seguían redirigiendo a
+`https://misscaricantu-com.l.ink/` (página de "URL Forwarding" de Porkbun) en vez de
+servir el sitio real, mucho más allá del tiempo normal de propagación.
+
+**Diagnóstico:**
+- La delegación NS a nivel de registro (`.com`) se confirmó propagada correctamente vía
+  `dig +trace` contra los servidores raíz — los servidores autoritativos correctos
+  (`dns1-4.p06.nsone.net`, de Netlify) sí están delegados.
+- Sin embargo, al consultar esos mismos 4 servidores directamente por el registro A de
+  `misscaricantu.com`, los 4 devuelven consistentemente `98.84.224.111` y `18.208.88.157`
+  (IPs de AWS que sirven el "Easy Links"/forwarding de Porkbun — confirmado por reverse DNS
+  `ec2-*.compute-1.amazonaws.com` y por el `Content-Security-Policy` de la respuesta HTTP,
+  que referencia `porkbun.com` y `l.ink`).
+- El panel de Netlify (Domain management → DNS records) mostraba correctamente solo 2
+  registros tipo `NETLIFY` apuntando a `radiant-dusk-8e1a97.netlify.app` — es decir, hay un
+  desfase entre lo que el panel de Netlify dice tener configurado y lo que sus propios
+  servidores DNS autoritativos están respondiendo realmente.
+- El usuario reportó que desde su celular (red distinta) sí veía el sitio correcto en un
+  momento dado — pero revisiones posteriores repetidas (varias veces, con ~15 min de
+  diferencia, desde múltiples resolutores: los 4 nameservers de Netlify directamente, más
+  Google 8.8.8.8 y Cloudflare 1.1.1.1) siguieron devolviendo las IPs de Porkbun de forma
+  consistente, sin mejora — descartando que fuera solo propagación anycast lenta normal.
+
+**Acciones intentadas:**
+1. Esperar propagación estándar (~10-15 min) — sin cambio
+2. Quitar el dominio del sitio en Netlify y volver a agregarlo (fix común para este tipo de
+   desfase) — sin cambio, mismas IPs de Porkbun después de re-agregar
+
+**Estado actual:** escalado a soporte de Netlify (usuario abrió ticket de soporte el
+2026-07-11 con el detalle técnico completo). Ticket bloqueado hasta su respuesta.
+
+**Mientras tanto:** el sitio sigue 100% funcional en la URL temporal
+`https://radiant-dusk-8e1a97.netlify.app`.
 
 ## Notas técnicas
 
-- Proyecto sin git — a diferencia de `pagina-ventas`, aquí el deploy en Netlify probablemente
-  se hará arrastrando la carpeta directamente (deploy manual) en vez de deploy automático
-  vía Git, salvo que se decida inicializar un repositorio para este proyecto también.
+- A diferencia del enfoque inicial (deploy manual sin git), se decidió inicializar un
+  repositorio git para este proyecto — repo `github.com/arturo10mt/carina-cantu`, conectado
+  a Netlify para deploy automático en cada push a `main` (mismo patrón que `pagina-ventas`).
+  El archivo `CV_Carina_Cantu_Ago25.docx` se excluyó del repo vía `.gitignore` por ser un
+  documento personal de la clienta.
 - Carpeta del proyecto: `Maestros/Carina/`
 - Pendientes de contenido (foto en alta resolución, testimonios reales, redes sociales)
   quedan fuera de este ticket — ver notas de TICKET-001.
