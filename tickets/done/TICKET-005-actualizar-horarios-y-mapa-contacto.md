@@ -1,10 +1,10 @@
 # TICKET-005: Actualizar horarios y ubicación del mapa en Contacto
 
-**Estado:** backlog (pendiente — bloqueado esperando dirección correcta del cliente)
+**Estado:** listo
 **Tipo:** contenido
 **Prioridad:** alta
 **Creado:** 2026-07-11
-**Completado:** —
+**Completado:** 2026-07-12
 
 ## Descripción
 
@@ -35,12 +35,12 @@ preciso confirmado por el cliente.
 
 - [x] `horarios` en `js/data.js` actualizado: Lunes–Viernes 4:40 pm – 7:40 pm, Sábado
       10:00 am – 2:00 pm, Domingo sin cambio — confirmado correcto por el usuario en local
-- [ ] `maps_link` actualizado con la nueva liga de Google Maps — aplicado, pero pendiente
-      de validar (ver bitácora)
-- [ ] `maps_embed` (iframe de la sección Contacto) actualizado para mostrar el pin correcto
-      — **sigue mostrando una ubicación incorrecta**, ver bitácora
-- [x] Verificado en local (`http://localhost:3001`) que la tabla de horarios es correcta;
-      el mapa se revisó pero no quedó bien
+- [x] `maps_link` actualizado — reconstruido con coordenadas exactas dadas por el cliente
+      (`19.2419971, -99.5663221`) en vez de re-geocodificar texto
+- [x] `maps_embed` (iframe de la sección Contacto) actualizado con las mismas coordenadas —
+      confirmado correcto por el usuario 2026-07-12
+- [x] Verificado en local (`http://localhost:3001`) que la tabla de horarios y el mapa
+      muestran los valores correctos
 - [x] Ningún otro dato de contacto cambia
 
 ## Bitácora — mapa incorrecto (2026-07-11)
@@ -62,9 +62,10 @@ es la correcta. Dos posibles causas a investigar cuando se retome:
    correcta pero el iframe (`maps_embed`) no. Vale la pena, al retomar, intentar embeber
    usando la liga original completa o sus coordenadas exactas en vez de reconstruir por texto.
 
-**Se pausa el ticket** hasta que el cliente confirme la dirección/ubicación correcta.
-El cambio de horarios (Cambio 1) ya quedó aplicado en el código local, sin commitear
-todavía — se commitea junto con el cambio de mapa cuando ambos queden listos.
+**Resolución (2026-07-12):** el cliente proporcionó coordenadas exactas
+(`19.2419971, -99.5663221`) en vez de una dirección de texto o liga corta. Se reconstruyeron
+`maps_embed` y `maps_link` usando esas coordenadas directamente (`q=lat,lng`), evitando el
+problema de geocodificación de texto. Confirmado correcto por el usuario en local.
 
 ## Notas técnicas
 

@@ -134,8 +134,8 @@ const PROFESIONISTA = {
     { dia: "Sábado",          hora: "10:00 am – 2:00 pm" },
     { dia: "Domingo",         hora: "Cerrado" }
   ],
-  maps_embed: "https://maps.google.com/maps?q=C.+16+de+Septiembre+115-casa+2,+Lazaro+Cardenas,+52148+Col.+Llano+Grande,+Mexico&output=embed",
-  maps_link: "https://maps.app.goo.gl/sDycnVzNhCnoAija6?g_st=aw",
+  maps_embed: "https://maps.google.com/maps?q=19.2419971,-99.5663221&output=embed",
+  maps_link: "https://www.google.com/maps/search/?api=1&query=19.2419971,-99.5663221",
   formspree: "https://formspree.io/f/mzdljoba",
 
   // --- REDES SOCIALES ---
