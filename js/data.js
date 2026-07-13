@@ -130,12 +130,12 @@ const PROFESIONISTA = {
   email: "pata.carinacantu@gmail.com",
   direccion: "Calle 16 de septiembre #115 casa 2, Col. Llano Grande, Metepec, Estado de México",
   horarios: [
-    { dia: "Lunes – Viernes", hora: "9:00 am – 6:00 pm" },
-    { dia: "Sábado",          hora: "9:00 am – 1:00 pm" },
+    { dia: "Lunes – Viernes", hora: "4:40 pm – 7:40 pm" },
+    { dia: "Sábado",          hora: "10:00 am – 2:00 pm" },
     { dia: "Domingo",         hora: "Cerrado" }
   ],
-  maps_embed: "https://maps.google.com/maps?q=Calle+16+de+septiembre+%23115+casa+2,+Col.+Llano+Grande,+Metepec,+Estado+de+Mexico&output=embed",
-  maps_link: "https://www.google.com/maps/search/?api=1&query=Calle+16+de+septiembre+%23115+casa+2,+Col.+Llano+Grande,+Metepec,+Estado+de+Mexico",
+  maps_embed: "https://maps.google.com/maps?q=C.+16+de+Septiembre+115-casa+2,+Lazaro+Cardenas,+52148+Col.+Llano+Grande,+Mexico&output=embed",
+  maps_link: "https://maps.app.goo.gl/sDycnVzNhCnoAija6?g_st=aw",
   formspree: "https://formspree.io/f/mzdljoba",
 
   // --- REDES SOCIALES ---

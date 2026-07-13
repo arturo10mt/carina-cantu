@@ -1,10 +1,10 @@
 # TICKET-003: Publicar la página de Carina en misscaricantu.com
 
-**Estado:** en progreso
+**Estado:** listo
 **Tipo:** infraestructura
 **Prioridad:** alta
 **Creado:** 2026-07-11
-**Completado:** —
+**Completado:** 2026-07-12
 
 ## Descripción
 
@@ -27,9 +27,8 @@ referencia).
 - [x] Se verifica que `https://www.misscaricantu.com` y `https://misscaricantu.com` cargan
       correctamente la página — confirmado 2026-07-12: ambas responden HTTP 200, `index.html`
       y `js/data.js` sirven el contenido real de Carina (no la redirección de Porkbun)
-- [ ] El formulario de contacto (Formspree) sigue funcionando correctamente ya en producción
-      — pendiente de que el usuario haga una prueba real de envío (no se probó vía curl para
-      no generar un envío falso al correo de la clienta)
+- [x] El formulario de contacto (Formspree) sigue funcionando correctamente ya en producción
+      — confirmado por el usuario 2026-07-12: mensaje de prueba llegó correctamente
 
 ## Bitácora — problema de DNS (2026-07-11)
 
