@@ -22,11 +22,14 @@ referencia).
 - [x] Dominio `misscaricantu.com` conectado en Netlify — nameservers cambiados en Porkbun a
       los de Netlify (`dns1-4.p06.nsone.net`), delegación confirmada propagada a nivel
       registro (verificado con `dig +trace` contra los servidores raíz de `.com`)
-- [ ] HTTPS activo automáticamente (certificado de Netlify) — bloqueado por el problema de
-      DNS descrito abajo
-- [ ] Se verifica que `https://www.misscaricantu.com` y `https://misscaricantu.com` cargan
-      correctamente la página — bloqueado por el mismo problema
+- [x] HTTPS activo automáticamente (certificado de Netlify) — confirmado 2026-07-12,
+      `curl` responde con conexión HTTPS válida y header `strict-transport-security`
+- [x] Se verifica que `https://www.misscaricantu.com` y `https://misscaricantu.com` cargan
+      correctamente la página — confirmado 2026-07-12: ambas responden HTTP 200, `index.html`
+      y `js/data.js` sirven el contenido real de Carina (no la redirección de Porkbun)
 - [ ] El formulario de contacto (Formspree) sigue funcionando correctamente ya en producción
+      — pendiente de que el usuario haga una prueba real de envío (no se probó vía curl para
+      no generar un envío falso al correo de la clienta)
 
 ## Bitácora — problema de DNS (2026-07-11)
 
@@ -62,8 +65,12 @@ servir el sitio real, mucho más allá del tiempo normal de propagación.
 **Estado actual:** escalado a soporte de Netlify (usuario abrió ticket de soporte el
 2026-07-11 con el detalle técnico completo). Ticket bloqueado hasta su respuesta.
 
-**Mientras tanto:** el sitio sigue 100% funcional en la URL temporal
-`https://radiant-dusk-8e1a97.netlify.app`.
+**Resolución (2026-07-12):** el dominio ya resuelve correctamente y sirve el sitio real
+(verificado con `curl`: HTTP 200 en `misscaricantu.com` y `www.misscaricantu.com`,
+contenido real de Carina en `index.html`/`js/data.js`, HTTPS válido). Se resolvió sin
+intervención adicional de nuestro lado — probablemente el propio soporte/backend de
+Netlify corrigió el desfase, o terminó de sincronizar por sí solo. No se recibió
+notificación explícita de soporte antes de confirmar que ya funcionaba.
 
 ## Notas técnicas
 
