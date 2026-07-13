@@ -1,10 +1,14 @@
 # TICKET-004: Configurar Google Analytics en la página de Carina
 
-**Estado:** backlog
+**Estado:** en progreso
 **Tipo:** infraestructura
 **Prioridad:** media
 **Creado:** 2026-07-11
 **Completado:** —
+
+## Measurement ID
+
+`G-XP4SRDC2Y6` (propiedad GA4 "misscaricantu.com", cuenta "Tu.Profesionista")
 
 ## Descripción
 
@@ -15,14 +19,15 @@ como referencia).
 
 ## Criterios de aceptación
 
-- [ ] Existe una propiedad GA4 creada en Google Analytics para `misscaricantu.com`
-      (nueva propiedad o agregada a la cuenta existente "Tu.Profesionista")
-- [ ] El snippet de GA4 (gtag.js) está insertado en el `<head>` de `index.html`
+- [x] Existe una propiedad GA4 creada en Google Analytics para `misscaricantu.com`
+      (propiedad nueva dentro de la cuenta existente "Tu.Profesionista")
+- [x] El snippet de GA4 (gtag.js) está insertado en el `<head>` de `index.html` —
+      verificado en local (`http://localhost:3001`)
 - [ ] Se verifica en el reporte "Tiempo real" de GA4 que las visitas en producción se
       registran correctamente (requiere visitar el sitio real desde un navegador, no basta
-      con curl — ver notas técnicas)
-- [ ] El Measurement ID de GA4 queda documentado en este ticket
-- [ ] No se afecta el rendimiento ni el diseño visible de la página
+      con curl — ver notas técnicas; pendiente hasta hacer push a producción)
+- [x] El Measurement ID de GA4 queda documentado en este ticket
+- [x] No se afecta el rendimiento ni el diseño visible de la página
 
 ## Notas técnicas
 
