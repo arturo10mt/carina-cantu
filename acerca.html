@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XP4SRDC2Y6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XP4SRDC2Y6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acerca de mí | Carina Cantú Mirón</title>
+  <meta name="description" content="Conoce la trayectoria de Carina Cantú Mirón, docente y asesora pedagógica con más de 20 años de experiencia." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <a href="index.html" class="nav-logo" id="nav-logo">—</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="acerca.html" class="nav-activo">Acerca de mí</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="credenciales.html">Formación</a></li>
+      <li><a href="testimonios.html">Testimonios</a></li>
+      <li><a href="faq.html">Preguntas frecuentes</a></li>
+      <li><a href="contacto.html" class="nav-cta">Contactar</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menú">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html"        onclick="cerrarMenu()">Inicio</a>
+    <a href="acerca.html" class="nav-activo" onclick="cerrarMenu()">Acerca de mí</a>
+    <a href="servicios.html"    onclick="cerrarMenu()">Servicios</a>
+    <a href="credenciales.html" onclick="cerrarMenu()">Formación</a>
+    <a href="testimonios.html"  onclick="cerrarMenu()">Testimonios</a>
+    <a href="faq.html"          onclick="cerrarMenu()">Preguntas frecuentes</a>
+    <a href="contacto.html"     onclick="cerrarMenu()">Contactar</a>
+  </div>
+
+  <!-- ACERCA DE -->
+  <section id="acerca">
+    <div class="container">
+      <div class="acerca-grid">
+        <svg class="acerca-ilustracion fade-in" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Red del conocimiento">
+          <defs>
+            <radialGradient id="rg-bg" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="#eaf8fb"/>
+              <stop offset="100%" stop-color="#cdeaf3"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#rg-bg)"/>
+          <!-- Anillo decorativo -->
+          <circle cx="200" cy="150" r="123" fill="none" stroke="#0d6e8a" stroke-opacity="0.07" stroke-width="10"/>
+          <circle cx="200" cy="150" r="123" fill="none" stroke="#0d6e8a" stroke-opacity="0.14" stroke-width="1"/>
+          <!-- Líneas punteadas al centro -->
+          <g stroke="#0d6e8a" stroke-opacity="0.32" stroke-width="1.5" stroke-dasharray="5,4">
+            <line x1="200" y1="150" x2="200" y2="55"/>
+            <line x1="200" y1="150" x2="282" y2="103"/>
+            <line x1="200" y1="150" x2="282" y2="197"/>
+            <line x1="200" y1="150" x2="200" y2="245"/>
+            <line x1="200" y1="150" x2="118" y2="197"/>
+            <line x1="200" y1="150" x2="118" y2="103"/>
+          </g>
+          <!-- Libro central -->
+          <ellipse cx="200" cy="176" rx="26" ry="4" fill="#0d6e8a" fill-opacity="0.12"/>
+          <polygon points="175,131 198,136 198,169 175,174" fill="#0d6e8a"/>
+          <polygon points="202,136 225,131 225,174 202,169" fill="#12a89d"/>
+          <rect x="197" y="131" width="6" height="43" fill="#073d4a"/>
+          <g stroke="rgba(255,255,255,0.28)" stroke-width="0.8">
+            <line x1="180" y1="142" x2="196" y2="142"/><line x1="180" y1="149" x2="196" y2="149"/>
+            <line x1="180" y1="156" x2="196" y2="156"/><line x1="180" y1="163" x2="196" y2="163"/>
+            <line x1="204" y1="142" x2="220" y2="142"/><line x1="204" y1="149" x2="220" y2="149"/>
+            <line x1="204" y1="156" x2="220" y2="156"/><line x1="204" y1="163" x2="220" y2="163"/>
+          </g>
+          <text x="200" y="159" text-anchor="middle" fill="white" fill-opacity="0.85" font-size="7" font-family="system-ui,sans-serif" font-weight="bold">20 AÑOS</text>
+          <!-- Nodo: Aritmética (arriba) -->
+          <circle cx="200" cy="55" r="34" fill="#0d6e8a" fill-opacity="0.15"/>
+          <circle cx="200" cy="55" r="28" fill="#0d6e8a"/>
+          <circle cx="193" cy="48" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="200" y="62" text-anchor="middle" fill="white" font-size="22" font-family="Georgia,serif">∑</text>
+          <text x="200" y="92" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Aritmética</text>
+          <!-- Nodo: Álgebra (arriba-derecha) -->
+          <circle cx="282" cy="103" r="34" fill="#12a89d" fill-opacity="0.15"/>
+          <circle cx="282" cy="103" r="28" fill="#12a89d"/>
+          <circle cx="275" cy="96" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="282" y="109" text-anchor="middle" fill="white" font-size="15" font-family="Georgia,serif">x²</text>
+          <text x="282" y="140" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Álgebra</text>
+          <!-- Nodo: Cálculo (abajo-derecha) -->
+          <circle cx="282" cy="197" r="34" fill="#0a7a72" fill-opacity="0.15"/>
+          <circle cx="282" cy="197" r="28" fill="#0a7a72"/>
+          <circle cx="275" cy="190" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="282" y="204" text-anchor="middle" fill="white" font-size="22" font-family="Georgia,serif">∫</text>
+          <text x="282" y="234" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Cálculo</text>
+          <!-- Nodo: Guitarra (abajo) -->
+          <circle cx="200" cy="245" r="34" fill="#c8821e" fill-opacity="0.15"/>
+          <circle cx="200" cy="245" r="28" fill="#c8821e"/>
+          <circle cx="193" cy="238" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="200" y="252" text-anchor="middle" fill="white" font-size="20" font-family="serif">♪</text>
+          <text x="200" y="282" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Guitarra</text>
+          <!-- Nodo: Geometría (abajo-izquierda) -->
+          <circle cx="118" cy="197" r="34" fill="#12a89d" fill-opacity="0.15"/>
+          <circle cx="118" cy="197" r="28" fill="#12a89d"/>
+          <circle cx="111" cy="190" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="118" y="204" text-anchor="middle" fill="white" font-size="18" font-family="Georgia,serif">△</text>
+          <text x="118" y="234" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Geometría</text>
+          <!-- Nodo: Lectura (arriba-izquierda) -->
+          <circle cx="118" cy="103" r="34" fill="#0d6e8a" fill-opacity="0.15"/>
+          <circle cx="118" cy="103" r="28" fill="#0d6e8a"/>
+          <circle cx="111" cy="96" r="11" fill="white" fill-opacity="0.15"/>
+          <text x="118" y="108" text-anchor="middle" fill="white" font-size="11" font-family="system-ui,sans-serif" font-weight="600">abc</text>
+          <text x="118" y="140" text-anchor="middle" fill="#1a2a2f" fill-opacity="0.65" font-size="9" font-family="system-ui,sans-serif">Lectura</text>
+        </svg>
+        <div class="fade-in">
+          <div class="section-header">
+            <p class="section-label">Acerca de mí</p>
+            <h2 class="section-titulo" id="acerca-titulo">—</h2>
+            <div id="acerca-texto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-logo" id="footer-logo">—</p>
+          <p class="footer-desc" id="footer-desc">—</p>
+        </div>
+        <div>
+          <p class="footer-titulo">Navegación</p>
+          <ul class="footer-links">
+            <li><a href="acerca.html">Acerca de mí</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="credenciales.html">Formación</a></li>
+            <li><a href="testimonios.html">Testimonios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-titulo">Horarios</p>
+          <table class="horarios-tabla" id="footer-horarios"></table>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="footer-copy">—</span>
+        <div class="footer-bottom-links">
+          <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+          <span class="footer-separador">·</span>
+          <a href="https://profsitio.com" target="_blank" rel="noopener">©Powered by Profsitio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA + SCRIPT -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    // --- ACERCA DE (específico de esta página) ---
+    document.getElementById('acerca-titulo').textContent = D.nombre;
+    const acercaTexto = document.getElementById('acerca-texto');
+    [D.acerca_parrafo1, D.acerca_parrafo2].forEach(p => {
+      const el = document.createElement('p');
+      el.textContent = p;
+      el.style.cssText = 'color:var(--texto-suave);line-height:1.8;margin-bottom:1rem';
+      acercaTexto.appendChild(el);
+    });
+
+    initFadeIn();
+  </script>
+
+</body>
+</html>

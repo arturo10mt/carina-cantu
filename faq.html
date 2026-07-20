@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carina Cantú Mirón | Docente y Asesora Pedagógica</title>
-  <meta name="description" content="Más de 20 años construyendo aprendizajes que transforman vidas. Clases particulares de lectoescritura, matemáticas y guitarra." />
+  <title>Preguntas frecuentes | Carina Cantú Mirón</title>
+  <meta name="description" content="Resuelve tus dudas sobre las clases particulares de Carina Cantú Mirón: niveles, duración, clases en línea y pagos." />
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Tabler Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -25,12 +25,12 @@
   <nav>
     <a href="index.html" class="nav-logo" id="nav-logo">—</a>
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-activo">Inicio</a></li>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="acerca.html">Acerca de mí</a></li>
       <li><a href="servicios.html">Servicios</a></li>
       <li><a href="credenciales.html">Formación</a></li>
       <li><a href="testimonios.html">Testimonios</a></li>
-      <li><a href="faq.html">Preguntas frecuentes</a></li>
+      <li><a href="faq.html" class="nav-activo">Preguntas frecuentes</a></li>
       <li><a href="contacto.html" class="nav-cta">Contactar</a></li>
     </ul>
     <button class="nav-burger" id="burger" aria-label="Menú">
@@ -38,44 +38,23 @@
     </button>
   </nav>
   <div class="nav-mobile" id="nav-mobile">
-    <a href="index.html" class="nav-activo" onclick="cerrarMenu()">Inicio</a>
+    <a href="index.html"        onclick="cerrarMenu()">Inicio</a>
     <a href="acerca.html"       onclick="cerrarMenu()">Acerca de mí</a>
     <a href="servicios.html"    onclick="cerrarMenu()">Servicios</a>
     <a href="credenciales.html" onclick="cerrarMenu()">Formación</a>
     <a href="testimonios.html"  onclick="cerrarMenu()">Testimonios</a>
-    <a href="faq.html"          onclick="cerrarMenu()">Preguntas frecuentes</a>
+    <a href="faq.html" class="nav-activo" onclick="cerrarMenu()">Preguntas frecuentes</a>
     <a href="contacto.html"     onclick="cerrarMenu()">Contactar</a>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
+  <!-- Preguntas frecuentes -->
+  <section id="faq">
     <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content fade-in">
-          <div class="hero-badge">
-            <i class="ti ti-rosette"></i>
-            <span id="hero-badge-text">Especialista certificada</span>
-          </div>
-          <h1 class="hero-nombre" id="hero-nombre">—</h1>
-          <p class="hero-especialidad" id="hero-especialidad">—</p>
-          <p class="hero-frase" id="hero-frase">—</p>
-          <div class="hero-btns">
-            <a id="hero-btn-wa" href="#" class="btn-primario">
-              <i class="ti ti-brand-whatsapp"></i> Agendar por WhatsApp
-            </a>
-            <a href="servicios.html" class="btn-secundario">
-              <i class="ti ti-list"></i> Ver servicios
-            </a>
-          </div>
-        </div>
-        <div class="hero-foto-wrap fade-in">
-          <div class="hero-foto-bg"></div>
-          <div class="hero-foto-placeholder" id="hero-foto">
-            <i class="ti ti-user-circle"></i>
-            <span>Foto del profesionista</span>
-          </div>
-        </div>
+      <div class="section-header centrado fade-in">
+        <p class="section-label">Preguntas frecuentes</p>
+        <h2 class="section-titulo">Resuelve tus dudas</h2>
       </div>
+      <div class="faq-lista" id="faq-lista"></div>
     </div>
   </section>
 
@@ -117,20 +96,26 @@
   <script src="js/data.js"></script>
   <script src="js/common.js"></script>
   <script>
-    // --- HERO (específico de esta página) ---
-    document.getElementById('hero-badge-text').textContent = D.titulo;
-    document.getElementById('hero-nombre').textContent  = D.nombre;
-    document.getElementById('hero-especialidad').textContent = D.especialidad;
-    document.getElementById('hero-frase').textContent   = D.frase_valor;
-    document.getElementById('hero-btn-wa').href = 'https://wa.me/' + D.whatsapp;
+    // --- Preguntas frecuentes (específico de esta página) ---
+    const faqLista = document.getElementById('faq-lista');
+    D.faq.forEach((f, i) => {
+      faqLista.innerHTML += `
+        <div class="faq-item">
+          <button class="faq-pregunta" onclick="toggleFaq(this)" aria-expanded="false">
+            ${f.pregunta}
+            <i class="ti ti-plus"></i>
+          </button>
+          <div class="faq-respuesta">${f.respuesta}</div>
+        </div>`;
+    });
 
-    // Foto hero (si existe el archivo)
-    const heroFotoEl = document.getElementById('hero-foto');
-    if (D.foto) {
-      const img = document.createElement('img');
-      img.src = D.foto; img.alt = D.foto_alt; img.className = 'hero-foto';
-      img.onerror = () => {}; // si no existe, queda el placeholder
-      heroFotoEl.parentNode.replaceChild(img, heroFotoEl);
+    function toggleFaq(btn) {
+      const resp = btn.nextElementSibling;
+      const abierto = btn.classList.contains('abierto');
+      document.querySelectorAll('.faq-pregunta.abierto').forEach(b => {
+        b.classList.remove('abierto'); b.nextElementSibling.classList.remove('abierto');
+      });
+      if (!abierto) { btn.classList.add('abierto'); resp.classList.add('abierto'); }
     }
 
     initFadeIn();

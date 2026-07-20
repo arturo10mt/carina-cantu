@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XP4SRDC2Y6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XP4SRDC2Y6');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Carina Cantú Mirón</title>
+  <meta name="description" content="Solicita información sobre las clases particulares de Carina Cantú Mirón. Escríbeme por WhatsApp o llena el formulario." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <a href="index.html" class="nav-logo" id="nav-logo">—</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="acerca.html">Acerca de mí</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="credenciales.html">Formación</a></li>
+      <li><a href="testimonios.html">Testimonios</a></li>
+      <li><a href="faq.html">Preguntas frecuentes</a></li>
+      <li><a href="contacto.html" class="nav-cta">Contactar</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menú">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html"        onclick="cerrarMenu()">Inicio</a>
+    <a href="acerca.html"       onclick="cerrarMenu()">Acerca de mí</a>
+    <a href="servicios.html"    onclick="cerrarMenu()">Servicios</a>
+    <a href="credenciales.html" onclick="cerrarMenu()">Formación</a>
+    <a href="testimonios.html"  onclick="cerrarMenu()">Testimonios</a>
+    <a href="faq.html"          onclick="cerrarMenu()">Preguntas frecuentes</a>
+    <a href="contacto.html" onclick="cerrarMenu()">Contactar</a>
+  </div>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label">Contacto</p>
+        <h2 class="section-titulo">Solicita información de mis clases</h2>
+        <p class="section-subtitulo">Estoy disponible para atenderte. Elige el canal que más te convenga.</p>
+      </div>
+      <div class="contacto-grid">
+        <div class="fade-in" id="contacto-info">
+          <!-- generado por JS -->
+        </div>
+        <div class="fade-in">
+          <div id="form-exito" style="display:none">
+            <div class="form-exito-box">
+              <i class="ti ti-circle-check"></i>
+              <h3>¡Mensaje enviado!</h3>
+              <p>Gracias por contactarme. Te responderé a la brevedad.</p>
+            </div>
+          </div>
+          <form id="contacto-form" onsubmit="enviarFormulario(event)">
+            <div class="form-grupo">
+              <label for="cf-nombre">Nombre completo</label>
+              <input type="text" id="cf-nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-grupo">
+              <label for="cf-tel">Teléfono / WhatsApp</label>
+              <input type="tel" id="cf-tel" placeholder="55 1234 5678" />
+            </div>
+            <div class="form-grupo">
+              <label for="cf-email">Correo electrónico</label>
+              <input type="email" id="cf-email" placeholder="tucorreo@ejemplo.com" />
+            </div>
+            <div class="form-grupo">
+              <label for="cf-servicio">Servicio de interés</label>
+              <select id="cf-servicio">
+                <option value="">Selecciona un servicio...</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label for="cf-mensaje">Mensaje (opcional)</label>
+              <textarea id="cf-mensaje" placeholder="Cuéntame brevemente el motivo de tu consulta..."></textarea>
+            </div>
+            <button type="submit" class="btn-form">
+              <i class="ti ti-send"></i> Enviar mensaje
+            </button>
+            <a id="wa-btn-contacto" href="#" class="btn-whatsapp" target="_blank">
+              <i class="ti ti-brand-whatsapp"></i> Contactar por WhatsApp
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-logo" id="footer-logo">—</p>
+          <p class="footer-desc" id="footer-desc">—</p>
+        </div>
+        <div>
+          <p class="footer-titulo">Navegación</p>
+          <ul class="footer-links">
+            <li><a href="acerca.html">Acerca de mí</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="credenciales.html">Formación</a></li>
+            <li><a href="testimonios.html">Testimonios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-titulo">Horarios</p>
+          <table class="horarios-tabla" id="footer-horarios"></table>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="footer-copy">—</span>
+        <div class="footer-bottom-links">
+          <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+          <span class="footer-separador">·</span>
+          <a href="https://profsitio.com" target="_blank" rel="noopener">©Powered by Profsitio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA + SCRIPT -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    // --- Select de servicios en el formulario ---
+    const selectServ = document.getElementById('cf-servicio');
+    D.servicios.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.nombre; opt.textContent = s.nombre;
+      selectServ.appendChild(opt);
+    });
+    const otroOpt = document.createElement('option');
+    otroOpt.value = 'Otro asunto'; otroOpt.textContent = 'Otro asunto...';
+    selectServ.appendChild(otroOpt);
+
+    // --- CONTACTO (específico de esta página) ---
+    const contactoInfo = document.getElementById('contacto-info');
+    contactoInfo.innerHTML = `
+      <div class="contacto-info-item">
+        <div class="contacto-info-icono"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <p class="contacto-info-label">Dirección</p>
+          <p class="contacto-info-valor">${D.direccion}</p>
+        </div>
+      </div>
+      <div class="contacto-info-item">
+        <div class="contacto-info-icono"><i class="ti ti-mail"></i></div>
+        <div>
+          <p class="contacto-info-label">Correo</p>
+          <p class="contacto-info-valor">${D.email}</p>
+        </div>
+      </div>
+      <table class="horarios-tabla">
+        ${D.horarios.map(h => `<tr><td>${h.dia}</td><td>${h.hora}</td></tr>`).join('')}
+      </table>
+      <a href="${D.maps_link}" target="_blank" rel="noopener" class="mapa-wrap">
+        <iframe src="${D.maps_embed}" allowfullscreen="" loading="lazy"></iframe>
+        <div class="mapa-overlay"><i class="ti ti-map-pin"></i> Abrir en Google Maps</div>
+      </a>`;
+
+    document.getElementById('wa-btn-contacto').href = 'https://wa.me/' + D.whatsapp;
+
+    // --- FORMULARIO ---
+    async function enviarFormulario(e) {
+      e.preventDefault();
+      const btn    = e.target.querySelector('.btn-form');
+      const nombre   = document.getElementById('cf-nombre').value;
+      const tel      = document.getElementById('cf-tel').value;
+      const email    = document.getElementById('cf-email').value;
+      const servicio = document.getElementById('cf-servicio').value;
+      const mensaje  = document.getElementById('cf-mensaje').value;
+
+      const textoWA = encodeURIComponent(
+        `Hola, soy ${nombre}.\nTeléfono: ${tel || 'No indicado'}\nCorreo: ${email || 'No indicado'}\nServicio: ${servicio || 'No especificado'}\n${mensaje ? 'Mensaje: ' + mensaje : ''}`
+      );
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="ti ti-loader"></i> Enviando...';
+
+      try {
+        const res = await fetch(D.formspree, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ nombre, telefono: tel, email, servicio, mensaje })
+        });
+        if (res.ok) {
+          document.getElementById('contacto-form').style.display = 'none';
+          document.getElementById('form-exito').style.display = 'block';
+        } else {
+          btn.innerHTML = '<i class="ti ti-alert-circle"></i> Error al enviar. Intenta por WhatsApp.';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.innerHTML = '<i class="ti ti-alert-circle"></i> Error al enviar. Intenta por WhatsApp.';
+        btn.disabled = false;
+      }
+    }
+
+    initFadeIn();
+  </script>
+
+</body>
+</html>
