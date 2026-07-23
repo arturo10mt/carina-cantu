@@ -10,7 +10,7 @@ const PROFESIONISTA = {
   titulo: "Docente y Asesora Pedagógica",
   especialidad: "Educación Primaria y Formación Docente",
   frase_valor: "Más de 20 años construyendo aprendizajes que transforman vidas.",
-  foto: "carina.png",
+  foto: "Carina2.jpeg",
   foto_alt: "Carina Cantú Mirón",
 
   // --- ACERCA DE ---
